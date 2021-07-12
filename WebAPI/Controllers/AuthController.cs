@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]")] //postmandan erişim sağlarken api/products/getall yaparkenki api buradaki api. products ise buradaki controller.
     [ApiController]
     public class AuthController : Controller
     {
@@ -31,7 +31,7 @@ namespace WebAPI.Controllers
             var result = _authService.CreateAccessToken(userToLogin.Data);
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result.Data); //yeni jwt keyi gönderiyor. burada giriş yaptığını tam görmek istersen userToLogin yaz heeer şeyini gösteriyor, kimsin nesin ve giriş yapabildin mi? giriş başarılı mesajın burada gözüküyor yani. Messages.SuccessFulLogin...
             }
 
             return BadRequest(result.Message);

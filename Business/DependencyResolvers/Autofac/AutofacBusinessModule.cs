@@ -14,6 +14,7 @@ using System.Text;
 
 namespace Business.DependencyResolvers.Autofac
 {
+    //dependency resolvers = bağımlılıkların çözümlemeleri demek. Yani hangi interfacenin karşılığı ne ? örnek: IUserDal ' ın karşılığı => EfUserDal örnek2: ICarService ' nin karşılığı => CarManager
     public class AutofacBusinessModule : Module
     { 
         protected override void Load(ContainerBuilder builder)

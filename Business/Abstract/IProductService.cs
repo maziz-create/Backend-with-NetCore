@@ -11,12 +11,13 @@ namespace Business.Abstract
     {
         //List<Product> GetAll();
         IDataResult<List<Product>> GetAll();
-        IDataResult<List<Product>> GetAllByCategoryId(int Id);
+        IDataResult<List<Product>> GetAllByCategoryId(int categoryID);
         IDataResult<List<Product>> GetByUnitPrice(decimal min, decimal max);
         IDataResult<List<ProductDetailDto>> GetProductDetails();
         IDataResult<Product> GetById(int productId);
 
-        IResult Add(Product product);   // olmadığından ötürü IDataResult ' a göndermedik.
+        IResult Add(Product product);   // dönebilecek bir data olmadığından ötürü IDataResult ' a göndermedik. yani aslında gereksiz görüyoruz. eklediğimiz adamın datasını neden geri döndürelim ki. eklendiğine dair mesaj döndürsem yeterli...
         IResult Update(Product product);
+        IResult AddTransactionalTest(Product product); //transaction yönetimi için.
     }
 }

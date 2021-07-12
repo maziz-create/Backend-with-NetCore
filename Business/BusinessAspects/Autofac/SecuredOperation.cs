@@ -14,7 +14,6 @@ namespace Business.BusinessAspects.Autofac
     // bu class JWT için
     public class SecuredOperation : MethodInterception
     {
-        
         private string[] _roles;
         private IHttpContextAccessor _httpContextAccessor;
 

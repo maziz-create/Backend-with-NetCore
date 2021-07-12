@@ -12,7 +12,7 @@ namespace Business.Abstract
     {
         IDataResult<User> Register(UserForRegisterDto userForRegisterDto, string password);
         IDataResult<User> Login(UserForLoginDto userForLoginDto);
-        IResult UserExists(string email); //bu ne kanka
+        IResult UserExists(string email); //bu kullanıcı var mı yok mu sistemimizdE? varsa eğer zaten kayıtlı olduğu için hata döndürecez.
         IDataResult<AccessToken> CreateAccessToken(User user);
     }
 }

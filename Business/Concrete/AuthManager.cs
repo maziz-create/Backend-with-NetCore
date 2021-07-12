@@ -33,7 +33,7 @@ namespace Business.Concrete
                 LastName = userForRegisterDto.LastName,
                 PasswordHash = passwordHash,
                 PasswordSalt = passwordSalt,
-                Status = true
+                Status = true //status: üyeliği aktif mi? banlı olma durumu yani. ayrıca status durumu başta false olup mail doğrulamasının ardından true'ye dönüştürülebilir. peki mail doğrulaması nasıl yapılacak lol :)
             };
             _userService.Add(user);
             return new SuccessDataResult<User>(user, Messages.UserRegistered);
@@ -47,6 +47,7 @@ namespace Business.Concrete
                 return new ErrorDataResult<User>(Messages.UserNotFound);
             }
 
+            //password doğrulaması hatalı çıkarsa!
             if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, userToCheck.PasswordHash, userToCheck.PasswordSalt))
             {
                 return new ErrorDataResult<User>(Messages.PasswordError);
